@@ -57,3 +57,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'awesome_print', '~> 1.8'
 gem 'devise'
+gem 'bootstrap', '~> 5.0.0.beta2'
+gem 'devise-bootstrap-views', '~> 1.0'
