@@ -1,0 +1,14 @@
+<h1>Users List</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>UserName</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to "send msg", landing_index_path(user_id: user) %></td>
+    </tr>
+  <% end %>
+</table>

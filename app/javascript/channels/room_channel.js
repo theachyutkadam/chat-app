@@ -15,22 +15,26 @@ consumer.subscriptions.create("RoomChannel", {
     // Called when there's incoming data on the websocket for this channel
     console.log("Recieving...")
     console.log(data.content)
-    $('#msg').append('<div class="message"> ' + data.content + '</div>')
+    var i;
+    for (i = 0; i < data.content.length; i++) {
+      $('#msg').append('<div class="message"> ' + data.content + '</div>')
+    }
     $('#message_content').select();
   }
 
 });
 
-let submit_messages;
-$(document).on('turbolinks:load', function () {
-  submit_messages()
-})
-submit_messages = function () {
-  $('#message_content').on('keydown', function (event) {
-    if (event.keyCode == 13) {
-      $('input').click()
-      event.target.value = ''
-      event.preventDefault()
-    }
+  let submit_messages;
+  $(document).on('turbolinks:load', function () {
+    submit_messages()
   })
+
+  submit_messages = function () {
+    $('#message_content').on('keydown', function (event) {
+      if (event.keyCode == 13) {
+        $('input').click()
+        event.target.value = ''
+        event.preventDefault()
+      }
+    })
 }
